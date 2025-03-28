@@ -35,3 +35,5 @@ This file contains the results of the audit of the trading bot system's modules,
 - **2025-03-28**: Модуль `trade_executor.py` не существует в системе, хотя упоминался в Known Issues. Его функциональность заменена `trade_executor_core.py` и `trade_executor_signals.py`. Обновлено Known Issues, заменив `trade_executor` на `trade_executor_core`.
 - **2025-03-28**: Модуль `trade_blacklist.py` (повторная проверка) успешно удалён из системы, как и ожидалось.
 - **2025-03-28**: Модуль `signal_validator.py` не существует в системе. Его функциональность, скорее всего, встроена в `trade_executor_signals.py`.
+- **2025-03-28**: Модуль `trade_pool.py` не существует в системе. Его функциональность заменена `trade_pool_core.py` и `trade_pool_queries.py`.
+- **2025-03-28**: Модуль `signal_metrics.py` не существует в системе. Его функциональность, скорее всего, встроена в `signal_generator_core.py` или `signal_generator_indicators.py`.
