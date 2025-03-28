@@ -27,7 +27,6 @@ digraph trading_bot {
     json_handler [label="json_handler.py"];
     config_settings [label="config_settings.py"];
     backtest_cycle [label="backtest_cycle.py"];
-    exchange_connection_settings [label="exchange_connection_settings.py"];
     bot_user_data [label="bot_user_data.py"];
     api_server [label="api_server.py"];
 
@@ -94,7 +93,6 @@ digraph trading_bot {
     json_handler -> logging_setup;
     config_settings -> logging_setup;
     backtest_cycle -> logging_setup;
-    exchange_connection_settings -> logging_setup;
     bot_user_data -> logging_setup;
     api_server -> logging_setup;
     config_keys -> logging_setup;
