@@ -29,9 +29,10 @@ digraph trading_bot {
     backtest_cycle [label="backtest_cycle.py"];
     bot_user_data [label="bot_user_data.py"];
     api_server [label="api_server.py"];
+    utils [label="utils.py"];
 
     // Additional Modules (abbreviated for brevity)
-    // ... (other 78 modules)
+    // ... (other 77 modules)
 
     // Dependencies
     trade_executor_core -> balance_manager;
@@ -95,4 +96,5 @@ digraph trading_bot {
     bot_user_data -> logging_setup;
     api_server -> logging_setup;
     config_keys -> logging_setup;
+    utils -> logging_setup;
 }
