@@ -29,8 +29,6 @@ digraph trading_bot {
     backtest_cycle [label="backtest_cycle.py"];
     exchange_connection_settings [label="exchange_connection_settings.py"];
     bot_user_data [label="bot_user_data.py"];
-    trade_history [label="trade_history.py"];
-    market_data_fetcher [label="market_data_fetcher.py"];
     api_server [label="api_server.py"];
 
     // Additional Modules (abbreviated for brevity)
@@ -98,8 +96,6 @@ digraph trading_bot {
     backtest_cycle -> logging_setup;
     exchange_connection_settings -> logging_setup;
     bot_user_data -> logging_setup;
-    trade_history -> logging_setup;
-    market_data_fetcher -> logging_setup;
     api_server -> logging_setup;
     config_keys -> logging_setup;
 }
