@@ -29,10 +29,10 @@ This file serves as the central hub for the trading bot project, providing a com
 - **IP and Location**: 45.140.147.187 (Netherlands, nl-arenda.10)
 
 ## Module Structure Overview
-The system consists of 99 modules, divided into three categories. Detailed module descriptions and dependencies are available in the graph file `trading_bot_graph.dot` and separate module maps:
+The system consists of 96 modules, divided into three categories. Detailed module descriptions and dependencies are available in the graph file `trading_bot_graph.dot` and separate module maps:
 - **Core Trading Logic**: 16 modules critical for trading operations (see `project_map_modules_core.md`).
 - **Supporting Modules**: 9 modules providing essential support functions (see `project_map_modules_supporting.md`).
-- **Additional Modules**: 72 modules for extended functionality (see `project_map_modules_additional.md`).
+- **Additional Modules**: 69 modules for extended functionality (see `project_map_modules_additional.md`).
 
 ## Known Issues
 - **Retrain Manager Data Preparation Failure**: `retraining_manager.py` fails with `Failed to prepare data for signal generation` due to insufficient trade data or data formatting issues. Needs to ensure at least 10 trades are available and properly formatted for ML signal generation.
@@ -79,6 +79,11 @@ The system consists of 99 modules, divided into three categories. Detailed modul
 - **2025-03-28**: Removed unused module from the system: `data_fetcher.py`.
 - **2025-03-28**: Removed unused module from the system: `symbol_utils.py`.
 - **2025-03-28**: Removed unused module from the system: `signal_aggregator.py`.
+- **2025-03-28**: Removed unused module from the system: `strategies_volume.py`.
+- **2025-03-28**: Removed unused module from the system: `holdings_manager.py`.
+- **2025-03-28**: Removed unused module from the system: `analytics.py`.
+- **2025-03-28**: Removed unused module from the system: `async_exchange_manager.py`.
+- **2025-03-28**: Removed unused module from the system: `async_order_fetcher.py`.
 
 ## Direct Server Interaction Setup
 This section describes the setup for enabling direct interaction with the server, allowing for faster execution of commands, testing, and code updates without manual intervention.
