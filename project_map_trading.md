@@ -1,4 +1,3 @@
-# project_map_trading.md
 # Project Map: Trading Logic
 
 ## Overview
@@ -30,9 +29,9 @@ This file serves as the central hub for the trading bot project, providing a com
 - **IP and Location**: 45.140.147.187 (Netherlands, nl-arenda.10)
 
 ## Module Structure Overview
-The system consists of 106 modules, divided into three categories. Detailed module descriptions and dependencies are available in the graph file `trading_bot_graph.dot` and separate module maps:
+The system consists of 104 modules, divided into three categories. Detailed module descriptions and dependencies are available in the graph file `trading_bot_graph.dot` and separate module maps:
 - **Core Trading Logic**: 16 modules critical for trading operations (see `project_map_modules_core.md`).
-- **Supporting Modules**: 12 modules providing essential support functions (see `project_map_modules_supporting.md`).
+- **Supporting Modules**: 10 modules providing essential support functions (see `project_map_modules_supporting.md`).
 - **Additional Modules**: 78 modules for extended functionality (see `project_map_modules_additional.md`).
 
 ## Known Issues
@@ -59,7 +58,7 @@ The system consists of 106 modules, divided into three categories. Detailed modu
 - **2025-03-27**: Updated `bot_trading.py` to fix `object bool can't be used in 'await' expression` by checking `execute_trade_signal` result before `await`. Updated again on 2025-03-27 to add logging for debugging. Updated on 2025-03-27 to fix `check_drawdown` call by removing `await`. Updated on 2025-03-27 to handle `None` from `execute_trade_signal` and cache problematic symbols in Redis. Updated on 2025-03-27 to fix `redis_client.get_json` calls by importing functions directly from `redis_client.py`.
 - **2025-03-27**: Updated `deposit_calculator.py` to calculate deposit including all tokens using intermediate pairs (BTC/ETH), added caching in Redis, and added deposit update after each operation.
 - **2025-03-27**: Updated `trade_executor_signals.py` to add logging for debugging `execute_trade` return value.
-- **2025-03-27**: Updated `trading_bot_graph.dot` to add dependency `bot_trading -> backtest_cycle`. Updated on 2025-03-27 to add `api_server.py` and its dependency on `logging_setup`. Updated on 2025-03-28 to add dependency `config_keys -> logging_setup`. Updated on 2025-03-28 to remove unused modules: `manual_trade.py`, `async_balance_fetcher.py`, `websocket_manager.py`, `notification_manager.py`, `rate_limiter.py`, `error_handler.py`. Updated on 2025-03-28 to remove unused modules: `performance_metrics.py`, `user_manager.py`.
+- **2025-03-27**: Updated `trading_bot_graph.dot` to add dependency `bot_trading -> backtest_cycle`. Updated on 2025-03-27 to add `api_server.py` and its dependency on `logging_setup`. Updated on 2025-03-28 to add dependency `config_keys -> logging_setup`. Updated on 2025-03-28 to remove unused modules: `manual_trade.py`, `async_balance_fetcher.py`, `websocket_manager.py`, `notification_manager.py`, `rate_limiter.py`, `error_handler.py`. Updated on 2025-03-28 to remove unused modules: `performance_metrics.py`, `user_manager.py`. Updated on 2025-03-28 to remove unused modules: `trade_history.py`, `market_data_fetcher.py`.
 - **2025-03-27**: Updated `logging_setup.py` to separate logs by level: `INFO` and `WARNING` to `main.log`, `DEBUG` to `debug.log`, `ERROR` to `exceptions.log`. Updated on 2025-03-27 to remove filter for `logger_main` to include `DEBUG` messages in `main.log`.
 - **2025-03-27**: Updated `redis_client.py` to add `add_to_problematic_symbols` and `get_problematic_symbols` for caching problematic symbols. Updated on 2025-03-27 to fix circular import with `redis_initializer.py`. Updated on 2025-03-27 to add performance logging for Redis operations. Updated on 2025-03-27 to fix `AttributeError: 'str' object has no attribute 'decode'` in `get_problematic_symbols`.
 - **2025-03-27**: Added development rule to always request module contents and analyze dependency chain before modifications.
@@ -70,6 +69,8 @@ The system consists of 106 modules, divided into three categories. Detailed modu
 - **2025-03-28**: Confirmed that API server allows reading system files (e.g., `trade_executor_core.py`, `logging_setup.py`), enabling analysis and modification of modules via API.
 - **2025-03-28**: Removed unused modules from the system: `manual_trade.py`, `async_balance_fetcher.py`, `websocket_manager.py`, `notification_manager.py`, `rate_limiter.py`, `error_handler.py`. Updated `trading_bot_graph.dot` to remove these modules and their dependencies.
 - **2025-03-28**: Removed unused modules from the system: `performance_metrics.py`, `user_manager.py`. Updated `trading_bot_graph.dot` to remove these modules and their dependencies.
+- **2025-03-28**: Removed unused modules from the system: `trade_history.py`, `market_data_fetcher.py`. Updated `trading_bot_graph.dot` to remove these modules and their dependencies.
+- **2025-03-28**: Replaced Pastebin links with GitHub links in the `Useful Links` section.
 
 ## Direct Server Interaction Setup
 This section describes the setup for enabling direct interaction with the server, allowing for faster execution of commands, testing, and code updates without manual intervention.
@@ -144,6 +145,4 @@ The roadmap is divided into several parts, each stored in a separate file:
 - **2025-03-28**: Модуль `backtest_cycle.py` потенциально используется в системе (зависимость от `bot_trading.py`). Рекомендуется сохранить, но подтвердить использование бэктестинга в `bot_trading.py`. Если бэктестинг не используется, модуль можно временно исключить из активного цикла. Полезные настройки: `initial_balance = 1000.0` (начальный баланс для бэктестинга), `trade_amount_percentage = 0.1` (процент от баланса для сделки), логика стратегий (`MovingAverageStrategy`, `RSIDivergenceStrategy`, `BollingerBandsBreakoutStrategy`, `MACDTrendFollowingStrategy`).
 - **2025-03-28**: Модуль `signal_blacklist.py` используется в системе (зависимость от `trade_executor_core.py`). Рекомендуется сохранить. Полезных настроек нет, так как чёрный список (`global_trade_blacklist`) находится в `trade_blacklist.py`. Замечания: 1) Импорт `logger_main` не используется, рекомендуется удалить. 2) В графе зависимостей указана связь `signal_blacklist -> redis_client`, но в коде этой зависимости нет. Удалена связь 2025-03-28.
 - **2025-03-28**: Модуль `manual_trade.py` не используется в текущей системе (нет входящих зависимостей в графе). Удалён из системы 2025-03-28. Полезные настройки сохранены: `exchange_id='mexc'`, `symbol='BROCK/USDT'`, `user_id='USER1'`, `amount=100` (тестовые параметры для сделок); `'enableRateLimit': True`, `'timeout': 60000` (настройки биржи); структура данных сделки (`symbol`, `side`, `amount`, `price`, `user_id`, `strategy_name`, `timestamp`, `source`, `signals`, `signal_metrics`, `market_conditions`).
-- **2025-03-28**: Замечание: В `manual_trade.py` импорт `logger_main` из `utils.py` не соответствует зависимости в графе (`manual_trade -> logging_setup`). Это подтверждает проблему с импортом `logger_main`, выявленную в `trade_executor_core.py`.
-- **2025-03-28**: Модуль `notification_manager.py` не существует в системе, хотя указан в `trading_bot_graph.dot`. Удалён из графа зависимостей 2025-03-28. Если функциональность уведомлений понадобится, модуль можно добавить заново.
-- **2025-03-28**: Модуль `async_balance_fetcher.py` не используе
+- **2025-03-28**: Замечание: В `manual_trade.py` импорт `logger_main` из `utils.py` не соответствует зависимости в графе (`manual_trade -> logging_setup`). Это подтверждает пр
