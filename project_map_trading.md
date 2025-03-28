@@ -29,10 +29,10 @@ This file serves as the central hub for the trading bot project, providing a com
 - **IP and Location**: 45.140.147.187 (Netherlands, nl-arenda.10)
 
 ## Module Structure Overview
-The system consists of 103 modules, divided into three categories. Detailed module descriptions and dependencies are available in the graph file `trading_bot_graph.dot` and separate module maps:
+The system consists of 100 modules, divided into three categories. Detailed module descriptions and dependencies are available in the graph file `trading_bot_graph.dot` and separate module maps:
 - **Core Trading Logic**: 16 modules critical for trading operations (see `project_map_modules_core.md`).
 - **Supporting Modules**: 9 modules providing essential support functions (see `project_map_modules_supporting.md`).
-- **Additional Modules**: 78 modules for extended functionality (see `project_map_modules_additional.md`).
+- **Additional Modules**: 75 modules for extended functionality (see `project_map_modules_additional.md`).
 
 ## Known Issues
 - **Retrain Manager Data Preparation Failure**: `retraining_manager.py` fails with `Failed to prepare data for signal generation` due to insufficient trade data or data formatting issues. Needs to ensure at least 10 trades are available and properly formatted for ML signal generation.
@@ -73,6 +73,7 @@ The system consists of 103 modules, divided into three categories. Detailed modu
 - **2025-03-28**: Replaced Pastebin links with GitHub links in the `Useful Links` section.
 - **2025-03-28**: Removed unused module from the system: `exchange_connection_settings.py`. Updated `trading_bot_graph.dot` to remove this module and its dependency.
 - **2025-03-28**: Moved audit results to a separate file `project_map_audit_results.md` to reduce the size of `project_map_trading.md`.
+- **2025-03-28**: Removed unused module from the system: `market_analyzer.py`. Updated module counts in `Module Structure Overview` to reflect the removal of `trade_blacklist.py`, `async_exchange_fetcher.py`, and `market_analyzer.py`.
 
 ## Direct Server Interaction Setup
 This section describes the setup for enabling direct interaction with the server, allowing for faster execution of commands, testing, and code updates without manual intervention.
