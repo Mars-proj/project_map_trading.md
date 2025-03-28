@@ -90,7 +90,6 @@ digraph trading_bot {
     redis_initializer -> logging_setup;
     redis_client -> redis_initializer;
     redis_client -> logging_setup;
-    json_handler -> logging_setup;
     config_settings -> logging_setup;
     backtest_cycle -> logging_setup;
     bot_user_data -> logging_setup;
