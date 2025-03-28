@@ -36,7 +36,7 @@ The system consists of 103 modules, divided into three categories. Detailed modu
 
 ## Known Issues
 - **Retrain Manager Data Preparation Failure**: `retraining_manager.py` fails with `Failed to prepare data for signal generation` due to insufficient trade data or data formatting issues. Needs to ensure at least 10 trades are available and properly formatted for ML signal generation.
-- **Trade Execution Error**: `bot_trading.py` fails with `'NoneType' object is not subscriptable` due to `execute_trade_signal` returning `None` unexpectedly. Needs to investigate why `trade_executor.execute_trade` returns `None`.
+- **Trade Execution Error**: `bot_trading.py` fails with `'NoneType' object is not subscriptable` due to `execute_trade_signal` returning `None` unexpectedly. Needs to investigate why `trade_executor_core.execute_trade` returns `None`.
 - **Insufficient Deposit**: `trade_executor_signals.py` reports `Insufficient deposit for user 8d99788d-f58f-4fb8-9e4d-c05f177f5405: 0.0 USDT, required minimum 10.0 USDT`. Needs to verify API key permissions or switch to backtesting mode if real funds are unavailable.
 - **Import Error in Trading System**: `trade_executor_core.py` fails with `ImportError: cannot import name 'logger_main' from 'utils'`. Needs to correct the import to use `logging_setup.py`.
 
