@@ -37,3 +37,9 @@ This file contains the results of the audit of the trading bot system's modules,
 - **2025-03-28**: Модуль `signal_validator.py` не существует в системе. Его функциональность, скорее всего, встроена в `trade_executor_signals.py`.
 - **2025-03-28**: Модуль `trade_pool.py` не существует в системе. Его функциональность заменена `trade_pool_core.py` и `trade_pool_queries.py`.
 - **2025-03-28**: Модуль `signal_metrics.py` не существует в системе. Его функциональность, скорее всего, встроена в `signal_generator_core.py` или `signal_generator_indicators.py`.
+- **2025-03-28**: Модуль `order_manager.py` не существует в системе. Его функциональность, скорее всего, встроена в `trade_executor_core.py`.
+- **2025-03-28**: Модуль `position_manager.py` не существует в системе. Его функциональность, скорее всего, встроена в `trade_executor_core.py` или `trade_pool_core.py`.
+- **2025-03-28**: Модуль `market_analyzer.py` не используется в текущей системе (нет входящих зависимостей в графе). Удалён из системы 2025-03-28. Его функциональность не интегрирована, но может быть полезна для анализа рыночных условий. Полезные настройки сохранены: `limit=10` для `fetch_order_book`, `limit=100` для `fetch_trades`, порог для крупных сделок 1000 USDT, метрики (`avg_drop`, `avg_volatility`, `liquidity`, `buy_sell_ratio`, `large_trades_count`).
+- **2025-03-28**: Модуль `strategy_manager.py` не существует в системе. Его функциональность, скорее всего, встроена в `strategies.py` или `bot_trading.py`.
+- **2025-03-28**: Модуль `trade_logger.py` не существует в системе. Его функциональность, скорее всего, встроена в `logging_setup.py`.
+- **2025-03-28**: Модуль `portfolio_manager.py` не существует в системе. Его функциональность, скорее всего, встроена в `deposit_calculator.py` и `balance_manager.py`.
