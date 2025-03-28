@@ -62,3 +62,10 @@ This file contains the results of the audit of the trading bot system's modules,
 - **2025-03-28**: Модуль `signal_metrics_calculator.py` не существует в системе. Его функциональность, скорее всего, встроена в `signal_generator_core.py` или `signal_generator_indicators.py`.
 - **2025-03-28**: Модуль `strategy_optimizer.py` не существует в системе. Его функциональность, скорее всего, отсутствует или встроена в `strategies.py` или `backtest_cycle.py`.
 - **2025-03-28**: Модуль `portfolio_optimizer.py` не существует в системе. Его функциональность, скорее всего, отсутствует или встроена в `deposit_calculator.py` и `balance_manager.py`.
+- **2025-03-28**: Модуль `trade_execution_engine.py` не существует в системе. Его функциональность встроена в `trade_executor_core.py` и `trade_executor_signals.py`.
+- **2025-03-28**: Модуль `signal_filter.py` не существует в системе. Его функциональность, скорее всего, встроена в `trade_executor_signals.py`.
+- **2025-03-28**: Модуль `market_data_aggregator.py` не существует в системе. Его функциональность, скорее всего, встроена в `signal_generator_core.py`, `signal_generator_indicators.py`, или ранее была в `market_data_fetcher.py`.
+- **2025-03-28**: Модуль `trade_history_analyzer.py` не существует в системе. Его функциональность, скорее всего, отсутствует или ранее была в `trade_history.py` или `trade_history_manager.py`.
+- **2025-03-28**: Модуль `trade_execution_validator.py` не существует в системе. Его функциональность, скорее всего, встроена в `trade_executor_signals.py`.
+- **2025-03-28**: Модуль `market_trend_analyzer.py` не существует в системе. Его функциональность, скорее всего, встроена в `signal_generator_core.py` или `signal_generator_indicators.py`.
+- **2025-03-28**: Модуль `trade_performance_analyzer.py` не существует в системе. Его функциональность, скорее всего, отсутствует или встроена в `trade_executor_core.py` или `bot_trading.py`.
