@@ -72,6 +72,7 @@ The system consists of 103 modules, divided into three categories. Detailed modu
 - **2025-03-28**: Removed unused modules from the system: `trade_history.py`, `market_data_fetcher.py`. Updated `trading_bot_graph.dot` to remove these modules and their dependencies.
 - **2025-03-28**: Replaced Pastebin links with GitHub links in the `Useful Links` section.
 - **2025-03-28**: Removed unused module from the system: `exchange_connection_settings.py`. Updated `trading_bot_graph.dot` to remove this module and its dependency.
+- **2025-03-28**: Moved audit results to a separate file `project_map_audit_results.md` to reduce the size of `project_map_trading.md`.
 
 ## Direct Server Interaction Setup
 This section describes the setup for enabling direct interaction with the server, allowing for faster execution of commands, testing, and code updates without manual intervention.
@@ -106,6 +107,8 @@ The roadmap is divided into several parts, each stored in a separate file:
   - **Update**: When medium-term or long-term goals are updated or completed.
 - **trading_bot_graph.dot**: Contains the dependency graph of all modules.
   - **Update**: Every 3 major system updates to ensure accuracy.
+- **project_map_audit_results.md**: Contains audit results of all modules.
+  - **Update**: When new audit results are added after analyzing modules.
 
 ## Roadmap
 
@@ -139,10 +142,7 @@ The roadmap is divided into several parts, each stored in a separate file:
 - [ ] Add real-time deposit monitoring and logging for users.
 - [ ] Conduct audit of the system to remove unused modules and optimize remaining ones.
 
-## Audit Results
-- **2025-03-28**: Модуль `json_handler.py` используется в системе (зависимость от `trade_executor_core.py`). Рекомендуется сохранить. Полезных настроек нет, но функции `dumps` и `loads` важны для сериализации данных. Замечание: В графе зависимостей указана связь `json_handler -> logging_setup`, но в коде этой зависимости нет. Удалена связь 2025-03-28.
-- **2025-03-28**: Модуль `config_keys.py` используется в системе (зависимости от `start_trading_all.py`, `exchange_connection.py`, `bot_user_data.py`). Рекомендуется сохранить. Полезные настройки: `API_KEYS` (хранит API-ключи для пользователей), `PREFERRED_EXCHANGES` (предпочтительные биржи для пользователей), `SUPPORTED_EXCHANGES` (список поддерживаемых бирж: `['mexc', 'binance', 'bybit', 'kucoin', 'okx']`).
-- **2025-03-28**: Замечание: В графе зависимостей (`trading_bot_graph.dot`) отсутствует связь `config_keys.py` -> `logging_setup.py`, хотя `validate_api_keys` использует `logger_main`. Добавлена зависимость в граф 2025-03-28.
-- **2025-03-28**: Модуль `backtest_cycle.py` потенциально используется в системе (зависимость от `bot_trading.py`). Рекомендуется сохранить, но подтвердить использование бэктестинга в `bot_trading.py`. Если бэктестинг не используется, модуль можно временно исключить из активного цикла. Полезные настройки: `initial_balance = 1000.0` (начальный баланс для бэктестинга), `trade_amount_percentage = 0.1` (процент от баланса для сделки), логика стратегий (`MovingAverageStrategy`, `RSIDivergenceStrategy`, `BollingerBandsBreakoutStrategy`, `MACDTrendFollowingStrategy`).
-- **2025-03-28**: Модуль `signal_blacklist.py` используется в системе (зависимость от `trade_executor_core.py`). Рекомендуется сохранить. Полезных настроек нет, так как чёрный список (`global_trade_blacklist`) находится в `trade_blacklist.py`. Замечания: 1) Импорт `logger_main` не используется, рекомендуется удалить. 2) В графе зависимостей указана связь `signal_blacklist -> redis_client`, но в коде этой зависимости нет. Удалена связь 2025-03-28.
-- **2025-03-28**: Модуль `manual_trade.py` не используется в текущей системе (нет входящих зависимостей в графе). Удалён из системы 2025-03-28. Полезные настройки сохранены: `exchange_id='mexc'`, `symbol='BROCK/USDT'`,
+## Useful Links
+- **project_map_trading.md**: `https://github.com/Mars-proj/project_map_trading.md/blob/main/project_map_trading.md`
+- **trading_bot_graph.dot**: `https://github.com/Mars-proj/project_map_trading.md/blob/main/trading_bot_graph.dot`
+- **project_map_audit_results.md**: `https://github.com/Mars-proj/project_map_trading.md/blob/main/project_map_audit_results.md`
