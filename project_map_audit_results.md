@@ -58,3 +58,7 @@ This file contains the results of the audit of the trading bot system's modules,
 - **2025-03-28**: Модуль `holdings_manager.py` не используется в текущей системе (нет входящих зависимостей в графе). Удалён из системы 2025-03-28. Его функциональность не интегрирована, но может быть полезна для управления активами. Полезные настройки сохранены: `max_holdings=1000`, формат хранения активов (`{base_asset: {'trade_id': ..., 'price': ...}}`).
 - **2025-03-28**: Модуль `trade_signal_handler.py` не существует в системе. Его функциональность, скорее всего, встроена в `trade_executor_signals.py`.
 - **2025-03-28**: Модуль `market_conditions.py` не существует в системе. Его функциональность, скорее всего, встроена в `signal_generator_core.py`, `signal_generator_indicators.py`, или ранее была в `market_analyzer.py`.
+- **2025-03-28**: Модуль `trade_metrics.py` не существует в системе. Его функциональность, скорее всего, отсутствует или встроена в `trade_executor_core.py` или `bot_trading.py`.
+- **2025-03-28**: Модуль `signal_metrics_calculator.py` не существует в системе. Его функциональность, скорее всего, встроена в `signal_generator_core.py` или `signal_generator_indicators.py`.
+- **2025-03-28**: Модуль `strategy_optimizer.py` не существует в системе. Его функциональность, скорее всего, отсутствует или встроена в `strategies.py` или `backtest_cycle.py`.
+- **2025-03-28**: Модуль `portfolio_optimizer.py` не существует в системе. Его функциональность, скорее всего, отсутствует или встроена в `deposit_calculator.py` и `balance_manager.py`.
